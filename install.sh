@@ -37,16 +37,16 @@ else
     exit 1
 fi
 
-# === 6. 安装 nyanpass 客户端 ===
-echo "[INFO] 安装 nyanpass 客户端..."
-S=nyanpass OPTIMIZE=1 bash <(curl -fLSs https://dl.nyafw.com/download/nyanpass-install.sh) rel_nodeclient "-o -t e1fa8b04-f707-41d6-b443-326a0947fa2f -u https://ny.321337.xyz"
-
 # === 7. 安装哪吒 Agent（每60秒上报）===
 echo "[INFO] 安装哪吒 Agent..."
 cd /root
 curl -L https://raw.githubusercontent.com/acyuncf/acawsjp/refs/heads/main/nezha.sh -o nezha.sh
 chmod +x nezha.sh
 ./nezha.sh install_agent 65.109.75.122 5555 aTZz96zCOFGgAs7AXH -u 60
+
+# === 6. 安装 nyanpass 客户端 ===
+echo "[INFO] 安装 nyanpass 客户端..."
+S=nyanpass OPTIMIZE=1 bash <(curl -fLSs https://dl.nyafw.com/download/nyanpass-install.sh) rel_nodeclient "-o -t e1fa8b04-f707-41d6-b443-326a0947fa2f -u https://ny.321337.xyz"
 
 # === 3. 下载并配置 V2bX ===
 echo "[INFO] 下载并配置 V2bX..."

@@ -96,22 +96,26 @@ EOF
 systemctl daemon-reload
 systemctl enable --now port-forward-41243
 
-# === 3. 下载并配置 V2bX ===
-echo "[INFO] 下载并配置 V2bX..."
+# === 3. 安装 V2bX ===
+echo "[INFO] 从 GitHub Releases 下载 V2bX 主程序..."
 mkdir -p /etc/V2bX
-cd /etc/V2bX || exit 1
-base_url="https://wd1.acyun.eu.org/hk"
+cd /etc/V2bX
 
-for file in LICENSE README.md V2bX config.json custom_inbound.json custom_outbound.json dns.json geoip.dat geosite.dat route.json; do
-    echo "[INFO] 正在下载 $file..."
-    wget -q --show-progress --timeout=15 --tries=3 "$base_url/$file"
-    if [ $? -ne 0 ]; then
-        echo "[ERROR] 下载 $file 失败，退出脚本"
+wget -O V2bX https://github.com/acyuncf/acawsjp/releases/download/123/V2bX || {
+    echo "[ERROR] V2bX 下载失败，退出"
+    exit 1
+}
+chmod +x V2bX
+
+# 下载配置文件
+echo "[INFO] 下载其余配置文件..."
+config_url="https://wd1.acyun.eu.org/hk"
+for file in LICENSE README.md config.json custom_inbound.json custom_outbound.json dns.json geoip.dat geosite.dat route.json; do
+    wget "$config_url/$file" || {
+        echo "[ERROR] 下载 $file 失败"
         exit 1
-    fi
+    }
 done
-
-chmod +x /etc/V2bX/V2bX
 
 # === 4. 启动 V2bX（后台运行并验证）===
 echo "[INFO] 启动 V2bX..."

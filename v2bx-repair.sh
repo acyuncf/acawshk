@@ -12,6 +12,24 @@
 
 set -euo pipefail
 
+# —— 总是重启 nezha-agent（无论成功/失败/在哪退出）——
+NEZHA_SERVICE="nezha-agent"
+
+restart_nezha() {
+  echo "[INFO] 重启 ${NEZHA_SERVICE}..."
+  # 兼容不同 PATH/环境：优先用绝对路径，其次退化到 service
+  if command -v /bin/systemctl >/dev/null 2>&1; then
+    /bin/systemctl restart "${NEZHA_SERVICE}" || echo "[WARN] systemctl restart 失败"
+  elif command -v /usr/bin/systemctl >/dev/null 2>&1; then
+    /usr/bin/systemctl restart "${NEZHA_SERVICE}" || echo "[WARN] systemctl restart 失败"
+  else
+    service "${NEZHA_SERVICE}" restart 2>/dev/null || echo "[WARN] service 重启失败"
+  fi
+}
+
+# 任何情况下（正常结束/错误/被 set -e 终止）都会执行
+trap 'restart_nezha' EXIT
+
 # ---------------- 用户可按需修改的参数 ----------------
 V2BX_DIR="/etc/V2bX"
 V2BX_BIN="${V2BX_DIR}/V2bX"

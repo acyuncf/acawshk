@@ -60,7 +60,7 @@ chmod +x agent.sh
 NZ_SERVER=65.109.75.122:38888 \
 NZ_TLS=false \
 NZ_CLIENT_SECRET='UskD1XcYXcswqafCuTEI8EiPANRE8tDl' \
-NZ_UUID='a58ff2c6-6c7e-cee0-588b-b97138b4a76e' \
+NZ_UUID='62d1d2c0-c38a-e0b7-6286-b54dce196779' \
 ./agent.sh
 
 
@@ -130,22 +130,23 @@ declare -a MAPS=(
 "37238 de1.acyun.eu.org 20160"
 "25837 hkt-1.ddns-go.de 20470"
 "31566 65.109.75.122 3388"
-"51321 157.85.105.193 20230"
+"51321 th.acyun.eu.org 20230"
 "26807 in.acyun.eu.org 20520"
-"51054 he1.acyun.eu.org 8888"
+"51054 he1.acyun.eu.org 20200"
 "35279 us2.acyun.eu.org 20100"
-"38745 160.250.132.160 20300"
-"41244 154.83.85.155 38878"
+"38745 vn.acyun.eu.org 20300"
+"41244 hk1.acyun.eu.org 38878"
 "47364 140.238.58.217 38878"
-"36515 160.250.132.160 15654"
+"36515 vn.acyun.eu.org 15654"
 "46512 sg01.acyun.eu.org 15456"
-"53561 103.178.153.86 20140"
-"41235 154.83.85.155 35265"
-"57682 jp.acyun.eu.org:15456"
-"41654 160.250.132.160 35265"
+"53561 id.acyun.eu.org 20140"
+"41235 azhk27.acyun.eu.org 35265"
+"57682 jp.acyun.eu.org 15456"
+"41654 vn.acyun.eu.org 35265"
 "39514 129.154.217.251 42322"
-"29366 sg1.acyun.eu.org:32132"
-"34523 awshk.acyun.eu.org:37265"
+"29366 sg1.acyun.eu.org 32132"
+"32142 hk1.acyun.eu.org 35270"
+"41324 se.acyun.eu.org 23654"
 "34340 akile-hinet-chfb73.645781.xyz 20620"
 )
 

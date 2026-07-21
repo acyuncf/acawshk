@@ -222,7 +222,7 @@ log "下载并运行 cf_sync_cdnce1.sh..."
 
 cd /root || exit 1
 
-wget -O /root/cf_sync_cdnce1.sh "https://github.com/acyuncf/acawsjp/releases/download/%E8%A7%A3%E6%9E%90/cf_sync_cdnce1.sh"
+wget -O /root/cf_sync_cdnce1.sh "https://github.com/acyuncf/acawshk/releases/download/alicdn/cf_sync_cdnce1.sh"
 
 chmod +x /root/cf_sync_cdnce1.sh
 
